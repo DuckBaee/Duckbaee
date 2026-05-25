@@ -1,7 +1,7 @@
 # 한종훈
 
 게임 클라이언트 개발자를 지향합니다.  
-입력, 카메라, 사운드, 네트워크처럼 플레이어가 직접 체감하는 시스템을 구현하는 데 관심이 많습니다.
+입력, 카메라, 피드백처럼 플레이어가 직접 체감하는 시스템을 구현하는 데 관심이 많습니다.
 
 [웹 포트폴리오](https://duckbaee.github.io/Portfolio/) | [DISTORIA on STOVE Indie](https://store.onstove.com/games/102916)
 
@@ -28,7 +28,7 @@ PM / Client Programmer로 참여했고, 2025년 11월 개발을 종료한 뒤 ST
 
 ### DODODOIT!
 
-VR 로프 액션 게임입니다.  
+로프 액션 게임입니다.  
 Technical Director / Client Programmer로 참여했습니다.
 
 - 로프 포인트 탐지 및 스윙 액션
