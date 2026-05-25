@@ -68,11 +68,10 @@ Unity 기반 액션 시스템, FPS 반동, AR 게임 사이클, IOCP 네트워�
 
 ![Unity](https://img.shields.io/badge/Unity-111827?style=flat-square&logo=unity&logoColor=white)
 ![C Sharp](https://img.shields.io/badge/C%23-68217A?style=flat-square&logo=csharp&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 
-`Unity` `C#` `AR Foundation` `FMOD` `IOCP` `C++` `Git` `GitHub`
+`Unity` `C#` `AR Foundation` `FMOD` `IOCP` `Git` `GitHub`
 
 ## Contact
 
