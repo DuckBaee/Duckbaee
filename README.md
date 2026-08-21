@@ -155,39 +155,6 @@ BookData 1 : N DiaryData
 
 ---
 
-## Additional Engineering Experience
-
-대표 프로젝트 설명 외에도 실제 개발 과정에서 다음과 같은 문제를 다뤘습니다.
-
-<table>
-<tr>
-<td><b>Gameplay Prototyping</b></td>
-<td>확정되지 않은 사양을 플레이 가능한 형태로 빠르게 구현하고 결과를 비교</td>
-</tr>
-
-<tr>
-<td><b>Client Architecture</b></td>
-<td>기능 증가에 따라 상태·책임·의존 관계를 분리하고 기존 구조를 개선</td>
-</tr>
-
-<tr>
-<td><b>Network Design</b></td>
-<td>게임플레이 의미에 맞춰 송수신 데이터와 전송 시점을 재설계</td>
-</tr>
-
-<tr>
-<td><b>Data Persistence</b></td>
-<td>저장 구조와 Runtime Object 구조 사이의 변환 및 관계 관리</td>
-</tr>
-
-<tr>
-<td><b>Development Tools</b></td>
-<td>반복 작업을 줄이기 위한 Editor 기반 데이터 자동화</td>
-</tr>
-</table>
-
----
-
 ## Tech Stack
 
 <table>
@@ -209,11 +176,6 @@ BookData 1 : N DiaryData
 <tr>
 <td><b>AI</b></td>
 <td>Unity Behavior · Behaviour Tree · Blackboard</td>
-</tr>
-
-<tr>
-<td><b>Network</b></td>
-<td>TCP · Client / Server · Dedicated Server · Position Synchronization</td>
 </tr>
 
 <tr>
