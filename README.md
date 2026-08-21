@@ -222,6 +222,6 @@ Git History / Code Ownership
 
 ### 한종훈 · Game Client Programmer
 
-`Gameplay` · `Network` · `AI` · `Data`
+`Unity` `C#` `Gameplay` `AI` `Data`
 
 </div>
