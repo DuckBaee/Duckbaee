@@ -7,7 +7,7 @@
 게임플레이 기능을 구현하고,
 개발 과정에서 발견한 문제를 **구조와 코드의 개선으로 연결하는 클라이언트 프로그래머**를 목표로 하고 있습니다.
 
-`Unity` `C#` `Gameplay` `Network` `AI` `Data`
+`Unity` `C#` `Gameplay` `AI` `Data`
 
 <br>
 
