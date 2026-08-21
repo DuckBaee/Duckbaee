@@ -4,16 +4,16 @@
 
 ### Game Client Programmer
 
-게임 플레이에 직접 연결되는 기능을 구현하고,
-프로젝트에서 발견한 문제를 **구조와 코드의 개선으로 연결하는 클라이언트 프로그래머**를 목표로 하고 있습니다.
+게임플레이 기능을 구현하고,
+개발 과정에서 발견한 문제를 **구조와 코드의 개선으로 연결하는 클라이언트 프로그래머**를 목표로 하고 있습니다.
 
 `Unity` `C#` `Gameplay` `Network` `AI` `Data`
 
 <br>
 
-<!-- 필요 시 PDF 포트폴리오 링크 추가 -->
+<!-- PDF 포트폴리오 완성 후 실제 링크로 교체 -->
 
-**[Portfolio PDF](포트폴리오_링크)**
+**Portfolio PDF**
 
 </div>
 
@@ -21,121 +21,170 @@
 
 ## Featured Projects
 
-### DISTORIA
+### 🎮 DISTORIA
 
-**3D Roguelike FPS · Unity · C#**
+**3D Roguelike FPS · Unity · C# · 16인 팀 프로젝트**
 
-16인 팀 프로젝트에서 클라이언트 프로그래밍을 담당했습니다.
+여러 플레이어 행동의 충돌 관리부터 반동, 카메라 피드백, 사운드 데이터 자동화, Scene Loading까지 실제 게임 흐름에 필요한 클라이언트 시스템을 구현했습니다.
 
-* 플레이어 액션 및 게임플레이 기능 구현
-* 카메라 피드백 및 전투 연출 연결
-* FMOD 기반 사운드 데이터 연동
-* Scene Group 기반 로딩 구조 구현
+**Highlights**
 
-**Key Topics**
-`Gameplay` `Camera` `FMOD` `Scene Loading`
+* Action Flag + BlockCount 기반 Player Action 관리
+* Curve · Kick · Noise · Spring 기반 Recoil System
+* Camera Feedback 간 Transform 간섭 분리
+* FMOD Bank → ScriptableObject Editor Pipeline
+* SceneGroup 기반 Additive Loading Flow
 
-→ **[View Repository](DISTORIA_레포지토리_링크)**
+**`Gameplay` `Architecture` `Camera` `Editor Tool` `Loading`**
 
----
-
-### DODODOIT!
-
-**3D Rope Action Runner · Unity · C#**
-
-로프 액션의 조작 방식을 직접 프로토타이핑하고,
-플레이 테스트 결과를 기반으로 조작 방식과 플레이어 상태 구조를 개선했습니다.
-
-* Rigidbody 기반 플레이어 이동
-* Grappling System 구현
-* State Pattern 기반 플레이어 상태 관리
-* Cinemachine 기반 카메라 연동
-* 여러 로프 조작 방식 프로토타이핑 및 비교
-
-**Key Topics**
-`Gameplay` `State Pattern` `Physics` `Cinemachine`
-
-→ **[View Repository](DODODOIT_레포지토리_링크)**
+→ **[View Repository](https://github.com/DuckBaee/Distoria-Client)**
 
 ---
 
-### Network Project
+### 🪢 DODODOIT!
 
-**Dedicated Server · Client / Server**
+**3D Rope Action Runner · Unity · C# · 12인 팀 프로젝트**
 
-위치 동기화와 채팅 기능을 제공하는 Dedicated Server 프로젝트를 개발했습니다.
+불확실했던 로프 액션을 여러 방식으로 프로토타이핑하고, 실제 플레이 결과를 바탕으로 이동 방식과 상태 구조를 단계적으로 개선했습니다.
 
-* Client / Server 통신 구조 구현
-* 플레이어 위치 동기화
-* 이동 데이터 전송 방식 설계
-* 현재 위치 전송과 목적지 기반 동기화 방식 비교
-* 네트워크 데이터 구조 설계
+**Evolution**
 
-**Key Topics**
-`Networking` `Dedicated Server` `Synchronization` `Protocol`
+`SpringJoint Prototype`
+↓
+`Fixed Radius Swing`
+↓
+`Enter → Swing → Exit`
+↓
+`Targeting · Rotation · Camera · Sound Integration`
 
-→ **[View Repository](NETWORK_레포지토리_링크)**
+**Highlights**
+
+* Grappling Control 방식 비교 및 프로토타이핑
+* 고정 반경 · 회전 기반 Swing 구현
+* Rope Lifecycle State 분리
+* 로컬 축 기반 Target Detection
+* Cinemachine · FMOD 연동 및 Release 안정화
+
+**`Gameplay` `Prototyping` `State` `Physics` `Cinemachine`**
+
+→ **[View Repository](https://github.com/DuckBaee/DoDoDoIt-Grappling)**
 
 ---
 
-### AR AutoBattler
+### 🌐 TCP Destination Sync
 
-**Unity 6 · Behaviour Tree · AR**
+**Unity Client · C# · TCP Server**
 
-Unity 6의 Behaviour Tree와 AR 기능을 활용해
-오토배틀러 형식의 게임을 제작했습니다.
+현재 위치를 일정 주기로 전송하던 초기 구조에서, 클릭 이동 방식의 실제 의미에 맞춰 **목적지를 이벤트 시점에 전달하는 구조**로 변경했습니다.
 
-* Behaviour Tree 기반 유닛 행동 구현
-* 기본 노드의 한계를 보완하기 위한 Custom Action 제작
-* Runtime Blackboard를 활용한 데이터 관리
-* AR Foundation 기반 카메라 시점 이동
-* Android 환경에서 동작하는 게임플레이 구현
+```text
+AS-IS
+Current Position
+→ every 0.5 sec
+→ Server
+→ SetDestination
 
-**Key Topics**
-`Behaviour Tree` `AI` `AR Foundation` `Unity 6`
+TO-BE
+Click Destination
+→ Server
+→ Broadcast
+→ SetDestination
+```
 
-→ **[View Repository](AR_레포지토리_링크)**
+**Highlights**
+
+* TCP Client / Server 통신
+* Player ID 및 Socket Mapping
+* 이동 · 채팅 Message 처리
+* Position Snapshot → Destination Sync 변경
+* 실제 구현 한계와 개선 방향 분석
+
+**`Networking` `Client/Server` `Synchronization` `Protocol`**
+
+→ **[View Repository](https://github.com/DuckBaee/TCP-Destination-Sync)**
+
+---
+
+### 🤖 AR Autobattler
+
+**Unity 6 · C# · Unity Behavior · AR Foundation**
+
+Autobattler의 전투 규칙을 Unity Behavior에 연결하고, 기본 Node만으로 표현하기 어려운 Target Selection을 Custom Action으로 확장했습니다.
+
+**Highlights**
+
+* 체력 비율 기반 Healer Target Selection
+* Custom Behavior Action 구현
+* Runtime Blackboard 기반 상태 데이터 관리
+* Behavior Graph와 Gameplay Logic 연결
+* AR Plane Raycast 기반 Battlefield 배치
+
+**`AI` `Behaviour Tree` `Blackboard` `AR Foundation`**
+
+→ **[View Repository](https://github.com/DuckBaee/AR-Autobattler)**
+
+---
+
+### 💾 Soul Gemstone
+
+**Unity · C# · SQLite · Android**
+
+하나의 JSON 목록으로 관리하던 기록 데이터를 `Book : Diary = 1:N` 구조로 분리하고, SQLite에 저장한 관계형 데이터를 다시 게임의 객체 구조로 복원했습니다.
+
+```text
+JSON
+DailyLogData + logGroup
+
+        ↓
+
+SQLite
+BookData 1 : N DiaryData
+```
+
+**Highlights**
+
+* JSON → SQLite 데이터 구조 변경
+* Book / Diary 1:N 관계 설계
+* 관계 ID 기반 데이터 조회
+* DB Row → C# Object Graph 복원
+* 당시 구현의 한계와 개선 방향 정리
+
+**`Data` `SQLite` `Persistence` `Object Mapping`**
+
+→ **[View Repository](https://github.com/DuckBaee/SoulGemstone-Data)**
 
 ---
 
 ## Additional Engineering Experience
 
-이력서에서 비중 있게 다루지 않았지만, 프로젝트를 진행하며 직접 구현하거나 개선한 경험입니다.
+대표 프로젝트 설명 외에도 실제 개발 과정에서 다음과 같은 문제를 다뤘습니다.
 
-### Gameplay Prototyping
+<table>
+<tr>
+<td><b>Gameplay Prototyping</b></td>
+<td>확정되지 않은 사양을 플레이 가능한 형태로 빠르게 구현하고 결과를 비교</td>
+</tr>
 
-* 확정되지 않은 게임 사양을 빠르게 검증하기 위한 기능 프로토타입 제작
-* 여러 Grappling 조작 방식을 실제 플레이 가능한 형태로 구현
-* 플레이 테스트 결과를 기반으로 조작 방식 비교 및 수정
-* 기능 추가 과정에서 발생한 상태 관리 복잡도를 구조 개선으로 연결
+<tr>
+<td><b>Client Architecture</b></td>
+<td>기능 증가에 따라 상태·책임·의존 관계를 분리하고 기존 구조를 개선</td>
+</tr>
 
----
+<tr>
+<td><b>Network Design</b></td>
+<td>게임플레이 의미에 맞춰 송수신 데이터와 전송 시점을 재설계</td>
+</tr>
 
-### Client Architecture
+<tr>
+<td><b>Data Persistence</b></td>
+<td>저장 구조와 Runtime Object 구조 사이의 변환 및 관계 관리</td>
+</tr>
 
-* 플레이어 행동을 상태 단위로 분리하여 기능별 책임 관리
-* 기능 확장 과정에서 클래스 간 역할과 의존성 재정리
-* 게임 로직과 데이터의 역할 분리
-* 새로운 기능 추가 시 기존 코드 수정 범위를 줄이기 위한 구조 개선
-
----
-
-### Networking
-
-* Client / Server 간 데이터 송수신 구현
-* 플레이어 위치 동기화 방식 설계
-* 전송 데이터의 의미와 크기를 고려한 구조 변경
-* 현재 위치 Snapshot과 목적지 기반 이동 데이터 방식 비교
-
----
-
-### Data Management
-
-* JSON 기반 게임 데이터 관리
-* SQLite 기반 데이터 저장 구조 구현
-* 데이터 간 `1:N` 관계 구성
-* DB 데이터를 게임에서 사용할 수 있는 객체 형태로 매핑
-* 데이터와 게임 로직의 결합도를 줄이기 위한 구조 개선
+<tr>
+<td><b>Development Tools</b></td>
+<td>반복 작업을 줄이기 위한 Editor 기반 데이터 자동화</td>
+</tr>
+</table>
 
 ---
 
@@ -143,7 +192,7 @@ Unity 6의 Behaviour Tree와 AR 기능을 활용해
 
 <table>
 <tr>
-<td><b>Game Engine</b></td>
+<td><b>Engine</b></td>
 <td>Unity</td>
 </tr>
 
@@ -154,22 +203,27 @@ Unity 6의 Behaviour Tree와 AR 기능을 활용해
 
 <tr>
 <td><b>Gameplay</b></td>
-<td>State Pattern · Physics · NavMesh · Cinemachine</td>
+<td>State · Physics · NavMesh · Cinemachine</td>
 </tr>
 
 <tr>
 <td><b>AI</b></td>
-<td>Behaviour Tree · Blackboard</td>
+<td>Unity Behavior · Behaviour Tree · Blackboard</td>
 </tr>
 
 <tr>
 <td><b>Network</b></td>
-<td>Client / Server · Dedicated Server · Position Synchronization</td>
+<td>TCP · Client / Server · Dedicated Server · Position Synchronization</td>
 </tr>
 
 <tr>
 <td><b>Data</b></td>
-<td>SQLite · JSON</td>
+<td>SQLite · JSON · ScriptableObject</td>
+</tr>
+
+<tr>
+<td><b>Audio</b></td>
+<td>FMOD Integration</td>
 </tr>
 
 <tr>
@@ -182,36 +236,30 @@ Unity 6의 Behaviour Tree와 AR 기능을 활용해
 
 ## Repository Guide
 
-대표 프로젝트 Repository에서는 다음 내용을 중심으로 정리합니다.
+각 프로젝트 Repository는 실행 가능한 Unity 프로젝트를 재구성한 것이 아니라,
+**제가 직접 작성한 코드와 실제 개발 과정의 변경 이력을 검토하기 위한 코드 포트폴리오**입니다.
 
 ```text
 README
- ├─ Project Overview
- ├─ My Contribution
- ├─ Architecture
- ├─ Core Systems
- └─ Source Code Guide
-
-Source
- ├─ Gameplay
- ├─ System
- ├─ Network / Data
- └─ Utility
-
-Docs
- └─ Architecture / Flow Diagram
+  ↓
+문제와 구현 의도
+  ↓
+Architecture / Evolution
+  ↓
+실제 Source Code
+  ↓
+Git History / Code Ownership
 ```
 
-팀 프로젝트의 경우 **제가 직접 작성한 코드 중 공개 가능한 부분만 별도로 정리하며,
-다른 팀원의 코드와 프로젝트 에셋은 포함하지 않습니다.**
+팀 프로젝트에서는 다른 팀원의 코드와 외부 Asset을 제외하고,
+공동 수정 파일은 Git History와 Blame을 기준으로 기여 범위를 별도로 표시했습니다.
 
 ---
 
 <div align="center">
 
-### Contact
+### 한종훈 · Game Client Programmer
 
-**GitHub** · 현재 페이지
-**Portfolio** · PDF Portfolio
+`Gameplay` · `Network` · `AI` · `Data`
 
 </div>
