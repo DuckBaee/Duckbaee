@@ -13,7 +13,7 @@
 
 <!-- PDF 포트폴리오 완성 후 실제 링크로 교체 -->
 
-**Portfolio PDF**
+[**Portfolio PDF**](https://github.com/DuckBaee/Portfolio)
 
 </div>
 
