@@ -21,11 +21,11 @@
 
 ## Featured Projects
 
-### 🧩 Unity Room Editor
+### 🧩 Procedural Level Generator & Unity Room Editor
 
 **Unity 6 · C# · UI Toolkit · AI 협업 개발**
 
-방의 예약 공간·아트·포털·게임 규칙을 통합 편집하는 툴킷입니다. **요구사항과 설계 방향을 결정하고, AI를 활용한 구현·검증·수정을 반복**하며 기존 맵 생성기와 연결했습니다.
+**첫 주의 셀 범위 표시부터 맵 생성기·최적화·통합 제작 툴까지 발전시킨 프로젝트**입니다. 포털 정렬과 예약 영역 충돌 검사, 시나리오 기반 DFS·백트래킹을 개발하고 이후 공간·아트·포털·규칙 편집으로 확장했습니다. 요구사항과 설계 정책을 결정하고 AI의 구현 안내·코드 작성·검토와 실제 실행 피드백을 연결했습니다.
 
 **AI Collaboration**
 
@@ -35,13 +35,18 @@
 
 **Optimization & Highlights**
 
+* 시나리오 깊이 기반 DFS, 후보 재시도, 유일 단계 대체 말단과 체크포인트 역순 복구
+* AABB Broad Phase로 정밀 충돌 검사 후보 축소 및 예약 박스·경계 재사용
+* 당시 사용자 측정 집계: 평균 생성 시간 **약 6.595초 → 0.601초(약 11배)**, 검사 진입 **약 4,443만 → 339만 회**
 * 공간 검사 결과 재사용과 상태 관찰 주기 제한
 * HashSet 기반 셀 중복 처리·no-op 감지
 * 다중 Collider 이벤트 중복 억제와 머무름 실행 간격 제어
 * 조건부 생성 1회 초기화와 방 인스턴스별 상태 분리
 * Play 중 자동 편입 간섭 수정 후 생성 회귀 검사 40/40 PASS
 
-최적화는 코드에서 확인되는 반복 작업·호출 비용 제어를 중심으로 설명하며, 완성 씬의 FPS·처리 시간 개선 수치는 아직 측정하지 않았습니다.
+생성 성능 수치는 OFF/ON 총 80회에 대한 당시 사용자 보고이며 이번에 재측정하지 않았습니다. 개별 로그·환경과 결과 동등성 재검증 한계는 최적화 문서에 명시했습니다. 완성 씬 FPS 개선 수치와 구분합니다.
+
+→ [1주차부터 전체 개발 과정](https://github.com/DuckBaee/Unity-Room-Editor/blob/main/docs/PROJECT-HISTORY.md)
 
 **`AI-assisted Development` `Editor Tool` `Optimization` `UI Toolkit` `Verification`**
 
