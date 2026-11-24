@@ -21,6 +21,37 @@
 
 ## Featured Projects
 
+### 🧩 Unity Room Editor
+
+**Unity 6 · C# · UI Toolkit · AI 협업 개발**
+
+방의 예약 공간·아트·포털·게임 규칙을 통합 편집하는 툴킷입니다. **요구사항과 설계 방향을 결정하고, AI를 활용한 구현·검증·수정을 반복**하며 기존 맵 생성기와 연결했습니다.
+
+**AI Collaboration**
+
+* 질문형 요구사항 점검 → 명세·수용 기준 → AI 구현 → 실행 검증 → 피드백·수정
+* 45도 포털 문제를 계기로 셀 조립에서 예약 공간 중심의 제작 흐름으로 재설계
+* AI 작성·수정 코드 포함 사실과 직접 결정한 설계·검증 범위를 공개
+
+**Optimization & Highlights**
+
+* 공간 검사 결과 재사용과 상태 관찰 주기 제한
+* HashSet 기반 셀 중복 처리·no-op 감지
+* 다중 Collider 이벤트 중복 억제와 머무름 실행 간격 제어
+* 조건부 생성 1회 초기화와 방 인스턴스별 상태 분리
+* Play 중 자동 편입 간섭 수정 후 생성 회귀 검사 40/40 PASS
+
+최적화는 코드에서 확인되는 반복 작업·호출 비용 제어를 중심으로 설명하며, 완성 씬의 FPS·처리 시간 개선 수치는 아직 측정하지 않았습니다.
+
+**`AI-assisted Development` `Editor Tool` `Optimization` `UI Toolkit` `Verification`**
+
+→ **[View Repository](https://github.com/DuckBaee/Unity-Room-Editor)**
+
+→ [AI 협업 과정](https://github.com/DuckBaee/Unity-Room-Editor/blob/main/docs/AI-WORKFLOW.md) · [최적화 접근](https://github.com/DuckBaee/Unity-Room-Editor/blob/main/docs/OPTIMIZATION.md)
+
+---
+
+
 ### 🎮 DISTORIA
 
 **3D Roguelike FPS · Unity · C# · 16인 팀 프로젝트**
@@ -199,7 +230,9 @@ BookData 1 : N DiaryData
 ## Repository Guide
 
 각 프로젝트 Repository는 실행 가능한 Unity 프로젝트를 재구성한 것이 아니라,
-**제가 직접 작성한 코드와 실제 개발 과정의 변경 이력을 검토하기 위한 코드 포트폴리오**입니다.
+**프로젝트별 구현 코드, 개발 과정과 기여 범위를 검토하기 위한 코드 포트폴리오**입니다.
+
+AI 협업 프로젝트인 Unity Room Editor에는 AI가 작성·수정한 코드가 포함되어 있으며, 직접 결정한 요구사항·설계 방향과 AI 활용 범위, 검증 근거를 별도로 설명합니다. 이 프로젝트의 공개 이력은 현재 상태의 스냅샷이며 원본 개발 커밋 이력을 재현한 것은 아닙니다.
 
 ```text
 README
